@@ -3,7 +3,6 @@
 rust_library_host_rlib {
     name: "liblog_rust",
     stem: "liblog",
-    deny_warnings: false,
     crate_name: "log",
     srcs: ["src/lib.rs"],
     edition: "2015",
