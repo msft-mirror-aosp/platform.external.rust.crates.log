@@ -13,7 +13,7 @@ rust_library {
     flags: [
         "--cfg atomic_cas",
     ],
-    rlibs: [
+    rustlibs: [
         "libcfg_if",
     ],
 }
