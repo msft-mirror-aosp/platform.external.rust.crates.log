@@ -1,5 +1,5 @@
 name: "log"
-description: "A Rust library providing a lightweight logging facade."
+description: "A lightweight logging facade for Rust"
 third_party {
   url {
     type: HOMEPAGE
