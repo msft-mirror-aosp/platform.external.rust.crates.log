@@ -1,6 +1,6 @@
 --- Android.bp	2020-12-14 20:08:02.451621093 +0900
 +++ Android.bp.new	2020-12-14 20:05:44.460062409 +0900
-@@ -14,6 +14,11 @@ rust_library {
+@@ -50,6 +50,11 @@ rust_library {
      rustlibs: [
          "libcfg_if",
      ],
