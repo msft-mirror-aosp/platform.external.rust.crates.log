@@ -14,7 +14,7 @@
       "name": "keystore2_test"
     },
     {
-      "name": "vpnprofilestore_test"
+      "name": "legacykeystore_test"
     },
     {
       "name": "tokio-test_device_test_src_lib"
