@@ -42,6 +42,7 @@ rust_library {
     stem: "liblog",
     // has rustc warnings
     host_supported: true,
+    vendor_available: true,
     crate_name: "log",
     srcs: ["src/lib.rs"],
     edition: "2015",
