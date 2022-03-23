@@ -7,6 +7,5 @@
   "device": true,
   "features": "std",
   "min-sdk-version": "29",
-  "run": true,
-  "vendor-available": true
+  "run": true
 }
