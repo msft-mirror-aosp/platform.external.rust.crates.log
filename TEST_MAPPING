@@ -55,6 +55,21 @@
       "name": "authfs_device_test_src_lib"
     },
     {
+      "name": "diced_open_dice_cbor_test"
+    },
+    {
+      "name": "diced_sample_inputs_test"
+    },
+    {
+      "name": "diced_test"
+    },
+    {
+      "name": "diced_utils_test"
+    },
+    {
+      "name": "diced_vendor_test"
+    },
+    {
       "name": "doh_unit_test"
     },
     {
@@ -98,9 +113,6 @@
     },
     {
       "name": "microdroid_manager_test"
-    },
-    {
-      "name": "open_then_run_module"
     },
     {
       "name": "rustBinderTest"
@@ -117,6 +129,21 @@
       "name": "authfs_device_test_src_lib"
     },
     {
+      "name": "diced_open_dice_cbor_test"
+    },
+    {
+      "name": "diced_sample_inputs_test"
+    },
+    {
+      "name": "diced_test"
+    },
+    {
+      "name": "diced_utils_test"
+    },
+    {
+      "name": "diced_vendor_test"
+    },
+    {
       "name": "doh_unit_test"
     },
     {
@@ -160,9 +187,6 @@
     },
     {
       "name": "microdroid_manager_test"
-    },
-    {
-      "name": "open_then_run_module"
     },
     {
       "name": "rustBinderTest"
