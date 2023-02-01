@@ -40,11 +40,10 @@ license {
 rust_library {
     name: "liblog_rust",
     stem: "liblog",
-    // has rustc warnings
     host_supported: true,
     crate_name: "log",
     cargo_env_compat: true,
-    cargo_pkg_version: "0.4.14",
+    cargo_pkg_version: "0.4.17",
     srcs: ["src/lib.rs"],
     edition: "2015",
     features: ["std"],
@@ -65,6 +64,7 @@ rust_library {
 
 rust_library {
     name: "liblog_rust_nostd",
+    host_supported: true,
     crate_name: "log",
     cargo_env_compat: true,
     cargo_pkg_version: "0.4.14",
