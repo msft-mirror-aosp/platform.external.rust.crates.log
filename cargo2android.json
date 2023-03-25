@@ -9,5 +9,10 @@
   "features": "std",
   "min-sdk-version": "29",
   "run": true,
-  "vendor-available": true
+  "vendor-available": true,
+  "variants": [
+    {
+      "suffix": "_rust"
+    }
+  ]
 }
