@@ -62,9 +62,8 @@ rust_library {
     min_sdk_version: "29",
 }
 
-rust_library {
+rust_library_rlib {
     name: "liblog_rust_nostd",
-    host_supported: true,
     crate_name: "log",
     cargo_env_compat: true,
     cargo_pkg_version: "0.4.17",
@@ -79,8 +78,15 @@ rust_library {
     ],
     apex_available: [
         "//apex_available:platform",
-        "com.android.virt",
+        "//apex_available:anyapex",
     ],
+    prefer_rlib: true,
+    no_stdlibs: true,
+    stdlibs: [
+        "libcompiler_builtins.rust_sysroot",
+        "libcore.rust_sysroot",
+    ],
+    product_available: true,
+    vendor_available: true,
     min_sdk_version: "29",
 }
-
