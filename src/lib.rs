@@ -344,6 +344,11 @@ mod serde;
 #[cfg(feature = "kv_unstable")]
 pub mod kv;
 
+#[cfg(default_log_impl)]
+extern crate once_cell;
+#[cfg(default_log_impl)]
+mod android_logger;
+
 #[cfg(has_atomics)]
 use std::sync::atomic::{AtomicUsize, Ordering};
 
@@ -405,7 +410,10 @@ const UNINITIALIZED: usize = 0;
 const INITIALIZING: usize = 1;
 const INITIALIZED: usize = 2;
 
+#[cfg(not(default_log_impl))]
 static MAX_LOG_LEVEL_FILTER: AtomicUsize = AtomicUsize::new(0);
+#[cfg(default_log_impl)]
+static MAX_LOG_LEVEL_FILTER: AtomicUsize = AtomicUsize::new(5);
 
 static LOG_LEVEL_NAMES: [&str; 6] = ["OFF", "ERROR", "WARN", "INFO", "DEBUG", "TRACE"];
 
@@ -1572,6 +1580,21 @@ impl error::Error for ParseLevelError {}
 /// If a logger has not been set, a no-op implementation is returned.
 pub fn logger() -> &'static dyn Log {
     if STATE.load(Ordering::SeqCst) != INITIALIZED {
+        #[cfg(default_log_impl)]
+        {
+            // On Android, default to logging to logcat if not explicitly initialized. This
+            // prevents logs from being dropped by default, which may happen unexpectedly in case
+            // of using libraries from multiple linker namespaces and failing to initialize the
+            // logger in each namespace. See b/294216366#comment7.
+            use android_logger::{AndroidLogger, Config};
+            use std::sync::OnceLock;
+            static ANDROID_LOGGER: OnceLock<AndroidLogger> = OnceLock::new();
+            return
+                ANDROID_LOGGER.get_or_init(|| {
+                    // Pass all logs down to liblog - it does its own filtering.
+                    AndroidLogger::new(Config::default().with_max_level(LevelFilter::Trace))
+                });
+        }
         static NOP: NopLogger = NopLogger;
         &NOP
     } else {
