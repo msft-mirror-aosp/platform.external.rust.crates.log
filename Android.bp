@@ -60,6 +60,18 @@ rust_library {
     product_available: true,
     vendor_available: true,
     min_sdk_version: "29",
+    target: {
+      android: {
+        cfgs: ["default_log_impl"],
+        rustlibs: [
+          "libandroid_log_sys",
+          "libonce_cell",
+        ],
+        shared_libs: [
+          "liblog",
+        ],
+      }
+    }
 }
 
 rust_library_rlib {
