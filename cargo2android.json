@@ -1,12 +1,18 @@
 {
-  "apex-available": [
-    "//apex_available:platform",
-    "//apex_available:anyapex"
-  ],
   "dependencies": true,
   "device": true,
-  "features": "std",
   "min-sdk-version": "29",
   "run": true,
-  "vendor-available": true
+  "variants": [
+    {
+      "features": "std",
+      "suffix": "_rust"
+    },
+    {
+      "force-rlib": true,
+      "no-host": true,
+      "suffix": "_rust_nostd",
+      "no-std": true
+    }
+  ]
 }
