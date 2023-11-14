@@ -71,7 +71,7 @@ rust_library {
           "liblog",
         ],
       }
-    }
+    },
 }
 
 rust_library_rlib {
