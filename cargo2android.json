@@ -6,7 +6,8 @@
   "variants": [
     {
       "features": "std",
-      "suffix": "_rust"
+      "suffix": "_rust",
+      "add-module-block": "android_impl.bp"
     },
     {
       "force-rlib": true,
