@@ -1,22 +1,12 @@
-diff --git a/rules.mk b/rules.mk
-index 425fd1c..1f25698 100644
---- a/rules.mk
-+++ b/rules.mk
-@@ -14,5 +14,17 @@ MODULE_RUSTFLAGS += \
-
+diff --git b/rules.mk a/rules.mk
+index 481dd29..329d328 100644
+--- b/rules.mk
++++ a/rules.mk
+@@ -15,7 +15,5 @@ MODULE_RUSTFLAGS += \
  MODULE_LIBRARY_DEPS := \
  	external/rust/crates/cfg-if \
-+	external/rust/crates/serde \
-+
-+ifeq ($(call TOBOOL,$(TRUSTY_USERSPACE)),false)
-+
-+# avoid cyclic dependence by adding dependencies manually
-+MODULE_ADD_IMPLICIT_DEPS := false
-+
-+MODULE_DEPS := \
-+	trusty/user/base/lib/libcore-rust/ \
-+	trusty/user/base/lib/libcompiler_builtins-rust/ \
-+
-+endif
-
+ 	external/rust/crates/serde \
+-	external/rust/crates/sval \
+-	external/rust/crates/value-bag \
+ 
  include make/library.mk
